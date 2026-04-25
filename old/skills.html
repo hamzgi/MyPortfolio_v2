@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기술 스택 - 포트폴리오</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> Portfolio
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">홈</a></li>
+                    <li><a href="about.html" class="nav-link">소개</a></li>
+                    <li><a href="skills.html" class="nav-link">기술</a></li>
+                    <li><a href="projects.html" class="nav-link">프로젝트</a></li>
+                    <li><a href="contact.html" class="nav-link">연락처</a></li>
+                </ul>
+                <a href="assignments.html" class="nav-cta">과제소개</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">기술 스택</h1>
+                    <p class="hero-subtitle">제가 사용 중인 도구와 기술들입니다.</p>
+                    <p class="hero-description">HTML, CSS, JavaScript를 기반으로 반응형 UI와 웹 페이지를 구현합니다. React, Node.js, SQL도 학습 중입니다.</p>
+                    <div class="hero-buttons">
+                        <a href="index.html" class="btn btn-secondary">메인으로 돌아가기</a>
+                        <a href="assignments.html" class="btn btn-primary">과제 소개 보기</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-avatar">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <h2 class="section-title">기술 스택</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3>HTML</h3>
+                        <p>시맨틱 마크업</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS</h3>
+                        <p>반응형 디자인</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 65%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>동적 기능 구현</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 30%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3>React</h3>
+                        <p>컴포넌트 개발</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 5%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-node-js"></i>
+                        </div>
+                        <h3>Node.js</h3>
+                        <p>백엔드 개발</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 5%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>SQL</h3>
+                        <p>데이터베이스</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="--progress: 35%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/%ED%98%95%EC%A7%84-%EB%B0%95-b14102368/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

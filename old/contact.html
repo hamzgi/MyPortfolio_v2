@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연락처 - 포트폴리오</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> Portfolio
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">홈</a></li>
+                    <li><a href="about.html" class="nav-link">소개</a></li>
+                    <li><a href="skills.html" class="nav-link">기술</a></li>
+                    <li><a href="projects.html" class="nav-link">프로젝트</a></li>
+                    <li><a href="contact.html" class="nav-link">연락처</a></li>
+                </ul>
+                <a href="assignments.html" class="nav-cta">과제소개</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">연락처</h1>
+                    <p class="hero-subtitle">소통할 수 있는 연락 방법입니다.</p>
+                    <p class="hero-description">문의, 협업 제안, 피드백 모두 환영합니다. 이메일이나 GitHub로 편하게 연락 주세요.</p>
+                    <div class="hero-buttons">
+                        <a href="index.html" class="btn btn-secondary">메인으로 돌아가기</a>
+                        <a href="assignments.html" class="btn btn-primary">과제 소개 보기</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-avatar">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title">연락처</h2>
+                <div class="contact-content">
+                    <p class="contact-intro">
+                        궁금하신 점이 있으신가요?<br>
+                        아래 방법으로 저에게 연락해주세요!
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:arthur0229@naver.com" class="contact-card">
+                            <i class="fas fa-envelope"></i>
+                            <h3>이메일</h3>
+                            <p>arthur0229@naver.com</p>
+                        </a>
+                        <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <i class="fab fa-github"></i>
+                            <h3>GitHub</h3>
+                            <p>github.com/hamzgi</p>
+                        </a>
+                        <a href="https://hamzgi.tistory.com/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                            <i class="fas fa-globe"></i>
+                            <h3>블로그</h3>
+                            <p>https://hamzgi.tistory.com/</p>
+                        </a>
+                        <a href="tel:+82-10-1234-5678" class="contact-card">
+                            <i class="fas fa-phone"></i>
+                            <h3>전화</h3>
+                            <p>+82-10-1234-5678</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/%ED%98%95%EC%A7%84-%EB%B0%95-b14102368/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
