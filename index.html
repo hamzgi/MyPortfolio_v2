@@ -48,18 +48,18 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <div class="hero-text">
+                <div class="hero-text reveal-element reveal-text">
                     <h1 class="hero-title">안녕하세요!</h1>
                     <p class="hero-subtitle"><span id="typing-text"></span><span class="typing-cursor"></span></p>
                     <p class="hero-description">
                         기초부터 새로운 웹 기술까지 모두 활용하여 사용자 중심의 서비스를 만드는 것을 좋아합니다.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">팀 프로젝트 보기</a>
+                        <a href="projects.html" class="btn btn-primary">팀 프로젝트 보기</a>
                         <a href="assignments.html" class="btn btn-secondary">과제 소개</a>
                     </div>
                 </div>
-                <div class="hero-visual">
+                <div class="hero-visual reveal-element reveal-image">
                     <div class="hero-avatar">
                         <img src="img/itsme.jpg" alt="프로필 사진" class="profile-image">
                     </div>
@@ -70,18 +70,13 @@
         <!-- About Section -->
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title">소개</h2>
+                <h2 class="section-title reveal-element reveal-text">소개</h2>
                 <div class="about-content">
-                    <div class="about-text">
+                    <div class="about-text reveal-element reveal-text">
                         <p>
                             현재 웹에 관해 열정적으로 공부중인 정보보호학전공 2학년 대학생입니다. 
                             새로운 기술을 배우고 적용하는 것을 즐기며, 
                             하나를 배우면 열을 알고싶은 주니어입니다.
-                        </p>
-                        <p>
-                            HTML, CSS, JavaScript 등 웹 기초부터 사용해보고
-                            현대적인 프레임워크까지 다양한 기술들도 찾아보며 
-                            프로젝트를 진행하기 위해 열심히 공부하고 있습니다.
                         </p>
                         <p>
                             멋쟁이사자처럼 동아리에서 항상 배움의 자세로 성장하고 있으며, 
@@ -89,19 +84,22 @@
                         </p>
                     </div>
                     <div class="about-stats">
-                        <div class="stat-card">
+                        <div class="stat-card reveal-element reveal-card-right">
                             <div class="stat-number">So.</div>
                             <div class="stat-label">중부대학교</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card reveal-element reveal-card-right">
                             <div class="stat-number">14기</div>
                             <div class="stat-label">멋쟁이사자처럼</div>
                         </div>
-                        <div class="stat-card">
+                        <div class="stat-card reveal-element reveal-card-right">
                             <div class="stat-number">100%</div>
                             <div class="stat-label">열정</div>
                         </div>
                     </div>
+                </div>
+                <div class="section-cta reveal-element reveal-text">
+                    <a href="about.html" class="btn btn-primary">소개 더 알아보기</a>
                 </div>
             </div>
         </section>
@@ -109,10 +107,10 @@
         <!-- Skills Section -->
         <section id="skills" class="skills">
             <div class="container">
-                <h2 class="section-title">기술 스택</h2>
+                <h2 class="section-title reveal-element reveal-text">기술 스택</h2>
                 <div class="skills-grid">
-                    <!-- Frontend -->
-                    <div class="skill-card">
+                    <!-- Frontend 3개 주요 기술 요약 -->
+                    <div class="skill-card reveal-element reveal-card-left">
                         <div class="skill-icon">
                             <i class="fab fa-html5"></i>
                         </div>
@@ -123,7 +121,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card reveal-element reveal-card-left">
                         <div class="skill-icon">
                             <i class="fab fa-css3-alt"></i>
                         </div>
@@ -134,7 +132,7 @@
                         </div>
                     </div>
 
-                    <div class="skill-card">
+                    <div class="skill-card reveal-element reveal-card-left">
                         <div class="skill-icon">
                             <i class="fab fa-js-square"></i>
                         </div>
@@ -144,39 +142,9 @@
                             <div class="skill-progress" data-progress="30%"></div>
                         </div>
                     </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <h3>React</h3>
-                        <p>컴포넌트 개발</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="5%"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fab fa-node-js"></i>
-                        </div>
-                        <h3>Node.js</h3>
-                        <p>백엔드 개발</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="5%"></div>
-                        </div>
-                    </div>
-
-                    <div class="skill-card">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>SQL</h3>
-                        <p>데이터베이스</p>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="35%"></div>
-                        </div>
-                    </div>
+                </div>
+                <div class="section-cta reveal-element reveal-text">
+                    <a href="skills.html" class="btn btn-primary">기술 스택 더 알아보기</a>
                 </div>
             </div>
         </section>
@@ -184,19 +152,10 @@
         <!-- Projects Section -->
         <section id="projects" class="projects">
             <div class="container">
-                <h2 class="section-title">팀 프로젝트 & 팀원</h2>
+                <h2 class="section-title reveal-element reveal-text">팀 프로젝트 & 팀원</h2>
                 
-                <!-- 카테고리 필터 버튼 -->
-                <div class="project-filters">
-                    <button class="btn-filter active" data-filter="all">전체</button>
-                    <button class="btn-filter" data-filter="html-css">HTML/CSS</button>
-                    <button class="btn-filter" data-filter="collaboration">협업</button>
-                    <button class="btn-filter" data-filter="deploy">배포</button>
-                    <button class="btn-filter" data-filter="structure">구조화</button>
-                </div>
-
                 <div class="projects-grid">
-                    <div class="project-card" data-category="html-css">
+                    <div class="project-card reveal-element reveal-card-left">
                         <div class="project-image">
                             <i class="fas fa-network-wired"></i>
                         </div>
@@ -215,7 +174,7 @@
                         </div>
                     </div>
 
-                    <div class="project-card" data-category="collaboration">
+                    <div class="project-card reveal-element reveal-card-right">
                         <div class="project-image">
                             <i class="fas fa-users"></i>
                         </div>
@@ -233,44 +192,9 @@
                             <a href="assignments.html" class="project-link">과제 소개 페이지</a>
                         </div>
                     </div>
-
-                    <div class="project-card" data-category="deploy">
-                        <div class="project-image">
-                            <i class="fas fa-code-branch"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>GitHub & 배포</h3>
-                            <p>
-                                팀 프로젝트의 코드와 개인 과제는 GitHub에 업로드되어 있으며,
-                                각자 직접 배포한 주소로 연결되어 있습니다.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">GitHub</span>
-                                <span class="tag">Vercel</span>
-                                <span class="tag">배포</span>
-                            </div>
-                            <a href="https://github.com/hamzgi/-4.-HTML-" target="_blank" rel="noopener noreferrer" class="project-link">프로젝트 저장소 보기</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card" data-category="structure">
-                        <div class="project-image">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <div class="project-content">
-                            <h3>포트폴리오 확장</h3>
-                            <p>
-                                이 포트폴리오 사이트는 향후 프로젝트와 과제를
-                                하나로 정리하기 위한 포맷으로 설계되었습니다.
-                            </p>
-                            <div class="project-tags">
-                                <span class="tag">확장성</span>
-                                <span class="tag">구조화</span>
-                                <span class="tag">표준화</span>
-                            </div>
-                            <a href="assignments.html" class="project-link">과제 페이지 목록 보기</a>
-                        </div>
-                    </div>
+                </div>
+                <div class="section-cta reveal-element reveal-text">
+                    <a href="projects.html" class="btn btn-primary">프로젝트 더 알아보기</a>
                 </div>
             </div>
         </section>
@@ -278,64 +202,43 @@
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title">연락처</h2>
+                <h2 class="section-title reveal-element reveal-text">연락처</h2>
                 <div class="contact-content">
-                    <p class="contact-intro">
+                    <p class="contact-intro reveal-element reveal-text">
                         궁금하신 점이 있으신가요?<br>
                         아래 방법으로 저에게 연락해주세요!
                     </p>
                     <div class="contact-methods">
-                        <a href="mailto:arthur0229@naver.com" class="contact-card">
+                        <a href="mailto:arthur0229@naver.com" class="contact-card reveal-element reveal-card-left">
                             <i class="fas fa-envelope"></i>
                             <h3>이메일</h3>
                             <p>arthur0229@naver.com</p>
                         </a>
-                        <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" class="contact-card reveal-element reveal-card-left">
                             <i class="fab fa-github"></i>
                             <h3>GitHub</h3>
                             <p>github.com/hamzgi</p>
                         </a>
-                        <a href="https://hamzgi.tistory.com/" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <a href="https://hamzgi.tistory.com/" target="_blank" rel="noopener noreferrer" class="contact-card reveal-element reveal-card-right">
                             <i class="fas fa-globe"></i>
                             <h3>블로그</h3>
                             <p>https://hamzgi.tistory.com/</p>
                         </a>
-                        <a href="tel:+82-10-1234-5678" class="contact-card">
+                        <a href="tel:+82-10-1234-5678" class="contact-card reveal-element reveal-card-right">
                             <i class="fas fa-phone"></i>
                             <h3>전화</h3>
                             <p>+82-10-1234-5678</p>
                         </a>
                     </div>
 
-                    <!-- 방명록 (Guestbook) 섹션 추가 -->
-                    <div class="guestbook-section">
-                        <div class="guestbook-container">
-                            <h2 class="section-title" style="font-size: 2rem; margin-top: 3rem; margin-bottom: 2rem;">방명록 (Guestbook)</h2>
-                            <form id="guestbookForm" class="guestbook-form">
-                                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
-                                    <div>
-                                        <label for="guestName">작성자</label>
-                                        <input type="text" id="guestName" required placeholder="이름을 입력하세요">
-                                    </div>
-                                    <div>
-                                        <label for="guestPassword">비밀번호</label>
-                                        <input type="password" id="guestPassword" required placeholder="삭제용 비밀번호">
-                                    </div>
-                                </div>
-                                <div class="form-group" style="margin-bottom: var(--spacing-md);">
-                                    <label for="guestMessage">메시지</label>
-                                    <textarea id="guestMessage" rows="4" required placeholder="방명록 내용을 남겨주세요!"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">작성 완료</button>
-                            </form>
-
-                            <div class="guestbook-list" id="guestbookList">
-                                <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
-                                    아직 등록된 방명록이 없습니다. 첫 마디를 남겨보세요!
-                                </div>
-                            </div>
-                        </div>
+                    <div style="text-align: center; margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); border-top: 1px solid var(--border-color);" class="reveal-element reveal-text">
+                        <p style="color: var(--text-secondary); margin-bottom: var(--spacing-sm);">
+                            저의 포트폴리오를 방문해주셔서 감사합니다. 방명록에 따뜻한 한마디를 남겨주세요!
+                        </p>
                     </div>
+                </div>
+                <div class="section-cta reveal-element reveal-text">
+                    <a href="contact.html" class="btn btn-primary">연락처 & 방명록 작성하러 가기</a>
                 </div>
             </div>
         </section>

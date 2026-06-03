@@ -390,4 +390,40 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ==================== 스크롤 Reveal 애니메이션 (Intersection Observer) ====================
+    const revealElements = document.querySelectorAll('.reveal-element');
+    
+    if (revealElements.length > 0) {
+        // 그룹 요소(스탯 카드, 스킬 카드, 프로젝트 카드 등)에 대해 순차적 딜레이(Stagger) 자동 설정
+        const revealGroups = document.querySelectorAll('.about-stats, .skills-grid, .projects-grid, .contact-methods');
+        revealGroups.forEach(group => {
+            const children = group.querySelectorAll('.reveal-element');
+            children.forEach((child, index) => {
+                if (!child.style.transitionDelay) {
+                    child.style.transitionDelay = `${index * 150}ms`;
+                }
+            });
+        });
+
+        // Intersection Observer 옵션 설정
+        const revealObserverOptions = {
+            root: null, // viewport
+            threshold: 0.1, // 10% 노출 시 실행
+            rootMargin: '0px 0px -40px 0px' // 화면 하단에 도달하기 약간 전에 감지
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    el.classList.add('revealed');
+                    observer.unobserve(el); // 한 번 활성화된 요소는 관찰 중지 (성능 최적화)
+                }
+            });
+        }, revealObserverOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    }
 });
+

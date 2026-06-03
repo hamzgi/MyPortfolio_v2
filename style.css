@@ -807,6 +807,49 @@ main {
     }
 }
 
+/* ==================== Scroll Reveal Animations ==================== */
+.reveal-element {
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+}
+
+/* 1. Text: fade in and slide up */
+.reveal-text {
+    transform: translateY(30px);
+}
+
+/* 2. Image: slightly zoom in (scale up from 0.94) */
+.reveal-image {
+    transform: scale(0.94);
+}
+
+/* 3. Card: slide in from left */
+.reveal-card-left {
+    transform: translateX(-40px);
+}
+
+/* 4. Card: slide in from right */
+.reveal-card-right {
+    transform: translateX(40px);
+}
+
+/* Revealed active state */
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Section CTA Button Centering */
+.section-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+    width: 100%;
+}
+
+
 @keyframes float {
     0%, 100% {
         transform: translateY(0px);
