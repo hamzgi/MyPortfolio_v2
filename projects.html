@@ -59,8 +59,18 @@
         <section class="projects">
             <div class="container">
                 <h2 class="section-title">팀 프로젝트 & 팀원</h2>
+                
+                <!-- 카테고리 필터 버튼 -->
+                <div class="project-filters">
+                    <button class="btn-filter active" data-filter="all">전체</button>
+                    <button class="btn-filter" data-filter="html-css">HTML/CSS</button>
+                    <button class="btn-filter" data-filter="collaboration">협업</button>
+                    <button class="btn-filter" data-filter="deploy">배포</button>
+                    <button class="btn-filter" data-filter="structure">구조화</button>
+                </div>
+
                 <div class="projects-grid">
-                    <div class="project-card">
+                    <div class="project-card" data-category="html-css">
                         <div class="project-image">
                             <i class="fas fa-network-wired"></i>
                         </div>
@@ -75,7 +85,7 @@
                             <a href="https://4-html-psi.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">배포 사이트 방문</a>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card" data-category="collaboration">
                         <div class="project-image">
                             <i class="fas fa-users"></i>
                         </div>
@@ -90,7 +100,7 @@
                             <a href="assignments.html" class="project-link">과제 소개 페이지</a>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card" data-category="deploy">
                         <div class="project-image">
                             <i class="fas fa-code-branch"></i>
                         </div>
@@ -105,7 +115,7 @@
                             <a href="https://github.com/hamzgi/-4.-HTML-" target="_blank" rel="noopener noreferrer" class="project-link">프로젝트 저장소 보기</a>
                         </div>
                     </div>
-                    <div class="project-card">
+                    <div class="project-card" data-category="structure">
                         <div class="project-image">
                             <i class="fas fa-file-alt"></i>
                         </div>
@@ -119,6 +129,22 @@
                             </div>
                             <a href="assignments.html" class="project-link">과제 페이지 목록 보기</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub 실시간 레포지토리 연동 섹션 -->
+        <section class="github-projects" style="padding: var(--spacing-xxl) 0; background-color: var(--bg-primary); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <h2 class="section-title">GitHub 실시간 프로젝트</h2>
+                <p style="text-align: center; color: var(--text-secondary); margin-bottom: var(--spacing-xl); font-size: 1.1rem;">
+                    GitHub API를 통해 실시간으로 가져온 최신 레포지토리 목록입니다.
+                </p>
+                <div id="github-repos" class="projects-grid">
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--accent);">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p>레포지토리를 불러오는 중입니다...</p>
                     </div>
                 </div>
             </div>
@@ -138,6 +164,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- 맨 위로 가기 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>

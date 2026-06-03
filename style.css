@@ -563,8 +563,11 @@ main {
     height: 100%;
     background: linear-gradient(90deg, var(--accent), var(--accent-hover));
     border-radius: 3px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.1, 1.0, 0.1, 1.0);
+}
+.skill-progress.visible {
     width: var(--progress);
-    animation: fillProgress 1.5s ease-out forwards;
 }
 
 /* ==================== Projects Section ==================== */
@@ -977,3 +980,273 @@ main {
         margin-top: 60px;
     }
 }
+
+/* ==================== Typing Cursor ==================== */
+.typing-cursor {
+    display: inline-block;
+    width: 2.5px;
+    background-color: var(--accent);
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ==================== Project Filters ==================== */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-filter:hover, .btn-filter.active {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Filter hide animation */
+.project-card {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.project-card.hide {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+/* ==================== Guestbook (방명록) ==================== */
+.guestbook-section {
+    margin-top: var(--spacing-xxl);
+    background-color: var(--bg-secondary);
+    padding: var(--spacing-xl) 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.guestbook-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.guestbook-form {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-xl);
+}
+
+.guestbook-form .form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.guestbook-form label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.guestbook-form input, .guestbook-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.guestbook-form input:focus, .guestbook-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+}
+
+.guestbook-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.guestbook-list::-webkit-scrollbar {
+    width: 6px;
+}
+.guestbook-list::-webkit-scrollbar-thumb {
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+.guest-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    position: relative;
+    animation: slideInUp 0.3s ease-out;
+}
+
+.guest-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: var(--spacing-xs);
+}
+
+.guest-name {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.guest-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.guest-content {
+    color: var(--text-primary);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.btn-delete-guest {
+    background: transparent;
+    border: none;
+    color: #ff4a5a;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.btn-delete-guest:hover {
+    background-color: rgba(255, 74, 90, 0.1);
+    transform: scale(1.1);
+}
+
+/* ==================== Back to Top Button ==================== */
+.back-to-top {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--bg-tertiary);
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.4);
+}
+
+/* ==================== Scrollspy Active Menu Item ==================== */
+.nav-link.active {
+    color: var(--accent) !important;
+}
+.nav-link.active::after {
+    width: 100% !important;
+}
+
+/* ==================== GitHub Repository Section ==================== */
+.github-repo-card {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    transition: var(--transition);
+}
+
+.github-repo-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.github-repo-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+}
+
+.github-repo-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+}
+
+.github-repo-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.github-repo-stats {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.github-repo-stat {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+

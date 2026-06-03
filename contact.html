@@ -86,6 +86,36 @@
                             <p>+82-10-1234-5678</p>
                         </a>
                     </div>
+
+                    <!-- 방명록 (Guestbook) 섹션 추가 -->
+                    <div class="guestbook-section">
+                        <div class="guestbook-container">
+                            <h2 class="section-title" style="font-size: 2rem; margin-top: 3rem; margin-bottom: 2rem;">방명록 (Guestbook)</h2>
+                            <form id="guestbookForm" class="guestbook-form">
+                                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                    <div>
+                                        <label for="guestName">작성자</label>
+                                        <input type="text" id="guestName" required placeholder="이름을 입력하세요">
+                                    </div>
+                                    <div>
+                                        <label for="guestPassword">비밀번호</label>
+                                        <input type="password" id="guestPassword" required placeholder="삭제용 비밀번호">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-bottom: var(--spacing-md);">
+                                    <label for="guestMessage">메시지</label>
+                                    <textarea id="guestMessage" rows="4" required placeholder="방명록 내용을 남겨주세요!"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;">작성 완료</button>
+                            </form>
+
+                            <div class="guestbook-list" id="guestbookList">
+                                <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
+                                    아직 등록된 방명록이 없습니다. 첫 마디를 남겨보세요!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -104,6 +134,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- 맨 위로 가기 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
