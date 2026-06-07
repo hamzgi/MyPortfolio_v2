@@ -245,6 +245,155 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchGitHubRepos();
     }
 
+    // ==================== 티스토리 블로그 글 (정적 데이터 - RSS 기반) ====================
+    // 티스토리가 외부 서버의 RSS 접근을 차단하므로, RSS에서 직접 파싱한 데이터를 내장합니다.
+    // 새 글을 작성하면 아래 TISTORY_POSTS 배열 맨 앞에 항목을 추가하세요.
+    const tistoryPostsContainer = document.getElementById('tistory-posts');
+    const tistoryFilters = document.getElementById('tistory-filters');
+
+    if (tistoryPostsContainer) {
+        const TISTORY_POSTS = [
+            {
+                title: '[구글 스터디잼] App Engine: Qwik Start - Python',
+                link: 'https://hamzgi.tistory.com/15',
+                date: '2026년 5월 4일',
+                summary: '이 실습에서는 Python 앱으로 클론/다운로드, 테스트, 업데이트, 배포 작업을 수행하는 방법을 알아봅니다. GCP를 이용하여 파이썬 앱을 배포해봤는데 서버구축 및 운영실습 수업시간 때 배웠던 리눅스 명령어나 깃 공부했던게 여기서도 쓰였습니다.',
+                categories: ['Google-Studyjam [with GCP]', 'Cloud', 'gcp', '스터디잼']
+            },
+            {
+                title: '[구글 스터디잼] Cloud Storage: Qwik Start - Google Cloud 콘솔',
+                link: 'https://hamzgi.tistory.com/14',
+                date: '2026년 4월 28일',
+                summary: '중급 난이도 실습을 해보다가 너무 복잡해서 GCP의 기초부터 배우기 위해 Standard-Infra 부터 공부를 시작했습니다. 버킷 만들기, 객체 업로드, 공개 공유, 폴더 생성 등을 실습했습니다.',
+                categories: ['Google-Studyjam [with GCP]', 'Cloud', 'gcp', '스터디잼']
+            },
+            {
+                title: '[Python] 문자열 뒤집기 - 슬라이싱으로 해결하기',
+                link: 'https://hamzgi.tistory.com/10',
+                date: '2025년 10월 27일',
+                summary: '문자열을 뒤집는 방법 중 가장 간결한 슬라이싱([::-1]) 방식을 정리했습니다. 리스트로 바꿔서 뒤집는 방법도 있지만 꼭 필요한 경우에만 사용하고, 내장 타입 이름은 변수로 쓰지 않아야 합니다.',
+                categories: ['기초부터 시작하는 Programmers!']
+            },
+            {
+                title: '무엇을 하는 곳인고?',
+                link: 'https://hamzgi.tistory.com/8',
+                date: '2025년 10월 27일',
+                summary: '백준 문제를 풀다가 프로그래머스에 오랜만에 다시 들어와서 문제를 풀어봤습니다. 웹에서 직접 코드를 실행하며 오답인지 정답인지 바로 확인할 수 있어 좋았습니다. 앞으로 공부했던 내용을 블로그에 기록할 계획입니다.',
+                categories: ['기초부터 시작하는 Programmers!']
+            },
+            {
+                title: '백준 10430 나머지',
+                link: 'https://hamzgi.tistory.com/6',
+                date: '2025년 10월 22일',
+                summary: '(A+B)%C와 ((A%C)+(B%C))%C가 같은지 확인하는 문제입니다. map()과 split()을 함께 사용하는 입력 방식과 다양한 대안적 접근법을 정리했습니다. 같은 정답이라도 코드를 구성하는 방법은 다양합니다.',
+                categories: ['기초부터 시작하는 백준 풀이!']
+            },
+            {
+                title: '백준 2739번 - 구구단',
+                link: 'https://hamzgi.tistory.com/4',
+                date: '2025년 10월 15일',
+                summary: 'N을 입력받아 구구단 N단을 출력하는 문제입니다. for문에서 반복 변수를 직접 수정하는 실수를 겪고, range(1,10)을 사용하는 깔끔한 방식으로 정답을 도출했습니다. 코드를 자주 최적화하는 습관의 중요성을 배웠습니다.',
+                categories: ['기초부터 시작하는 백준 풀이!']
+            },
+            {
+                title: '백준 10926번 - ??!',
+                link: 'https://hamzgi.tistory.com/3',
+                date: '2025년 10월 14일',
+                summary: '사용자가 입력한 아이디 뒤에 "??!"를 붙여 출력하는 문제입니다. input() 안에 프롬프트 문구를 넣으면 백준에서 오답 처리된다는 점을 배웠습니다. 기초 문제라도 형식을 정확히 맞추는 것이 중요합니다.',
+                categories: ['기초부터 시작하는 백준 풀이!']
+            }
+        ];
+
+        let allPosts = TISTORY_POSTS;
+        let activeCategory = 'all';
+
+        function buildCategoryFilters(posts) {
+            if (!tistoryFilters) return;
+            const categorySet = new Set();
+            posts.forEach(p => p.categories.forEach(c => { if (c) categorySet.add(c); }));
+
+            tistoryFilters.innerHTML = '<button class="btn-filter active" data-category="all">전체</button>';
+            categorySet.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-filter';
+                btn.setAttribute('data-category', cat);
+                btn.textContent = cat;
+                tistoryFilters.appendChild(btn);
+            });
+
+            tistoryFilters.querySelectorAll('.btn-filter').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    tistoryFilters.querySelectorAll('.btn-filter').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeCategory = btn.getAttribute('data-category');
+                    const filtered = activeCategory === 'all'
+                        ? allPosts
+                        : allPosts.filter(p => p.categories.includes(activeCategory));
+                    renderTistoryPosts(filtered);
+                });
+            });
+        }
+
+        function renderTistoryPosts(posts) {
+            tistoryPostsContainer.innerHTML = '';
+
+            if (posts.length === 0) {
+                tistoryPostsContainer.innerHTML = `
+                    <p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary); padding: 2rem;">
+                        해당 카테고리의 글이 없습니다.
+                    </p>`;
+                return;
+            }
+
+            const directions = ['reveal-card-left', 'reveal-card-right'];
+            const icons = ['fa-pen-nib', 'fa-book-open', 'fa-lightbulb', 'fa-star', 'fa-flask', 'fa-code'];
+
+            posts.forEach((post, index) => {
+                const tagsHtml = post.categories.map(cat =>
+                    `<span class="tag">${cat}</span>`
+                ).join('');
+                const iconClass = icons[index % icons.length];
+                const dir = directions[index % 2];
+
+                const cardHtml = `
+                    <div class="project-card reveal-element ${dir}" data-tistory-post>
+                        <div class="project-image">
+                            <i class="fas ${iconClass}"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3 style="font-size: 1.1rem; line-height: 1.5;">${post.title}</h3>
+                            <p style="font-size: 0.9rem;">${post.summary}</p>
+                            <div class="project-tags">
+                                ${tagsHtml || '<span class="tag">블로그</span>'}
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">
+                                    <i class="fas fa-calendar-alt" style="margin-right: 0.3rem;"></i>${post.date}
+                                </span>
+                                <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    글 읽기
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                tistoryPostsContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+
+            if (revealObserver) {
+                const newCards = tistoryPostsContainer.querySelectorAll('.reveal-element');
+                newCards.forEach((card, i) => {
+                    card.style.transitionDelay = `${i * 100}ms`;
+                    revealObserver.observe(card);
+                });
+            }
+        }
+
+        // 즉시 렌더링 (API 없이 정적 데이터 사용)
+        buildCategoryFilters(allPosts);
+        renderTistoryPosts(allPosts);
+    }
+
     // ==================== LocalStorage 방명록 (Guestbook) CRUD 구현 ====================
     const guestbookForm = document.getElementById('guestbookForm');
     const guestbookList = document.getElementById('guestbookList');

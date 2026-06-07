@@ -623,6 +623,48 @@ main {
     background-color: var(--bg-secondary);
 }
 
+/* 카테고리 필터 버튼 컨테이너 */
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 필터 버튼 기본 스타일 */
+.btn-filter {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.btn-filter:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background-color: rgba(0, 212, 255, 0.08);
+}
+
+.btn-filter.active {
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    border-color: var(--accent);
+    color: var(--bg-primary);
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+/* 숨겨진 카드 처리 */
+.project-card.hide {
+    display: none;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
