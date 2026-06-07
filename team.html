@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀원 소개 - 포트폴리오</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> Portfolio
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="assignments.html" class="nav-link">개인 과제 소개</a></li>
+                    <li><a href="teampj.html" class="nav-link">팀플 과제 소개</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home" style="min-height: auto; padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);">
+            <div class="hero-content" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-text reveal-element reveal-text">
+                    <h1 class="hero-title">팀원 소개</h1>
+                    <p class="hero-subtitle">보안 가이드 최종 프로젝트를 함께한 팀원들입니다.</p>
+                    <p class="hero-description" style="margin: 0 auto var(--spacing-lg) auto; max-width: 800px;">
+                        각자 명확한 역할 분담을 통해 최고의 웹 서비스를 제작하기 위해 힘썼습니다. 
+                        보안 위협 실습부터 자가 진단 및 동향 파악까지, 각 팀원이 구현해 낸 핵심 기능들을 소개합니다.
+                    </p>
+                    <div class="hero-buttons" style="justify-content: center;">
+                        <a href="teampj.html" class="btn btn-primary">팀플 과제 개요 보기</a>
+                        <a href="index.html" class="btn btn-secondary">포트폴리오로 돌아가기</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" style="border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <h2 class="section-title reveal-element reveal-text">역할 및 기여도</h2>
+                
+                <div class="projects-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--spacing-lg);">
+                    <!-- 박형진 -->
+                    <div class="project-card reveal-element reveal-card-left" style="height: 100%;">
+                        <div class="project-image" style="background: linear-gradient(135deg, #00d4ff, #00f0ff); color: var(--bg-primary); padding: var(--spacing-lg); font-size: 1.5rem; font-weight: 700; flex-direction: column; height: 160px;">
+                            <i class="fas fa-crown" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+                            <span>박형진 (팀장)</span>
+                        </div>
+                        <div class="project-content" style="padding: var(--spacing-lg); display: flex; flex-direction: column; height: calc(100% - 160px);">
+                            <h4 style="color: var(--accent); margin-bottom: var(--spacing-xs); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">담당 파트</h4>
+                            <h3 style="margin-bottom: var(--spacing-md); font-size: 1.25rem;">인터랙티브 보안 실습 페이지</h3>
+                            <div class="project-tags" style="margin-bottom: var(--spacing-md);">
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">인터랙티브 실습</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">OWASP 모의</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">코드 비교</span>
+                            </div>
+                            <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-grow: 1; font-size: 0.95rem;">
+                                <li style="margin-bottom: var(--spacing-xs);">취약 코드와 보안 조치 코드 실시간 비교 기능 구현</li>
+                                <li style="margin-bottom: var(--spacing-xs);">OWASP A05 XSS 및 A01 접근 통제 인터랙티브 모의 실습 개발</li>
+                                <li>OWASP A07 무차별 대입(Brute Force) 공격 실습 화면 설계 및 비즈니스 로직 작성</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 박시우 -->
+                    <div class="project-card reveal-element reveal-card-left" style="height: 100%;">
+                        <div class="project-image" style="background: linear-gradient(135deg, #ff4a5a, #ff6b8b); color: var(--bg-primary); padding: var(--spacing-lg); font-size: 1.5rem; font-weight: 700; flex-direction: column; height: 160px;">
+                            <i class="fas fa-shield-alt" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+                            <span>박시우 (팀원)</span>
+                        </div>
+                        <div class="project-content" style="padding: var(--spacing-lg); display: flex; flex-direction: column; height: calc(100% - 160px);">
+                            <h4 style="color: var(--accent); margin-bottom: var(--spacing-xs); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">담당 파트</h4>
+                            <h3 style="margin-bottom: var(--spacing-md); font-size: 1.25rem;">보안 수칙 페이지 JS 인터랙션</h3>
+                            <div class="project-tags" style="margin-bottom: var(--spacing-md);">
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">JS 인터랙션</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">보안 퀴즈</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">정보 시각화</span>
+                            </div>
+                            <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-grow: 1; font-size: 0.95rem;">
+                                <li style="margin-bottom: var(--spacing-xs);">보안 수칙 카드 전반에 걸친 매끄러운 돔(DOM) 인터랙션 기능 설계</li>
+                                <li style="margin-bottom: var(--spacing-xs);">카드 개별 클릭 시 동적으로 상세 정보를 확장 표시하는 기능 구현</li>
+                                <li>사용자 참여 유도를 위한 보안 상식 퀴즈 정답 검증 및 결과 피드백 시스템 코딩</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 박지민 -->
+                    <div class="project-card reveal-element reveal-card-right" style="height: 100%;">
+                        <div class="project-image" style="background: linear-gradient(135deg, #10b981, #34d399); color: var(--bg-primary); padding: var(--spacing-lg); font-size: 1.5rem; font-weight: 700; flex-direction: column; height: 160px;">
+                            <i class="fas fa-rss" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+                            <span>박지민 (팀원)</span>
+                        </div>
+                        <div class="project-content" style="padding: var(--spacing-lg); display: flex; flex-direction: column; height: calc(100% - 160px);">
+                            <h4 style="color: var(--accent); margin-bottom: var(--spacing-xs); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">담당 파트</h4>
+                            <h3 style="margin-bottom: var(--spacing-md); font-size: 1.25rem;">보안 이슈 및 트렌드 페이지</h3>
+                            <div class="project-tags" style="margin-bottom: var(--spacing-md);">
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">실시간 이슈</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">기사 필터링</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">더보기 페이징</span>
+                            </div>
+                            <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-grow: 1; font-size: 0.95rem;">
+                                <li style="margin-bottom: var(--spacing-xs);">실시간 보안 기사 피드 연동 및 카테고리 필터 검색 모듈 설계</li>
+                                <li style="margin-bottom: var(--spacing-xs);">주요 보안 트렌드 비디오 자료 동적 임베드 및 다이나믹 필터링 개발</li>
+                                <li>목록 보기 최적화를 위한 '더보기(Load More)' 클릭 시 추가 목록 동적 로드 기능 구현</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 최보원 -->
+                    <div class="project-card reveal-element reveal-card-right" style="height: 100%;">
+                        <div class="project-image" style="background: linear-gradient(135deg, #a855f7, #c084fc); color: var(--bg-primary); padding: var(--spacing-lg); font-size: 1.5rem; font-weight: 700; flex-direction: column; height: 160px;">
+                            <i class="fas fa-laptop-house" style="font-size: 2.5rem; margin-bottom: 0.5rem;"></i>
+                            <span>최보원 (팀원)</span>
+                        </div>
+                        <div class="project-content" style="padding: var(--spacing-lg); display: flex; flex-direction: column; height: calc(100% - 160px);">
+                            <h4 style="color: var(--accent); margin-bottom: var(--spacing-xs); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">담당 파트</h4>
+                            <h3 style="margin-bottom: var(--spacing-md); font-size: 1.25rem;">위험진단 및 메인/공용 JS</h3>
+                            <div class="project-tags" style="margin-bottom: var(--spacing-md);">
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">위험 진단</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">메인 홈페이지</span>
+                                <span class="tag" style="font-size: 0.75rem; padding: 0.2rem 0.6rem;">공용 함수</span>
+                            </div>
+                            <ul style="color: var(--text-secondary); line-height: 1.8; padding-left: var(--spacing-sm); margin-bottom: var(--spacing-md); flex-grow: 1; font-size: 0.95rem;">
+                                <li style="margin-bottom: var(--spacing-xs);">보안 수준 위험도 점수 산출 및 진단 스크립트 작성 및 레이아웃 구현</li>
+                                <li style="margin-bottom: var(--spacing-xs);">메인 홈페이지 전반의 마크업 수정 및 활성 자바스크립트 연동 최적화</li>
+                                <li>팀 소개 페이지와 문의(Contact) 전송 폼 검증 스크립트 연동 및 레이아웃 설계</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 맨 위로 가기 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

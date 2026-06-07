@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀플 과제 소개 - 포트폴리오</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" aria-label="테마 전환">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-code"></i> Portfolio
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="assignments.html" class="nav-link">개인 과제 소개</a></li>
+                    <li><a href="teampj.html" class="nav-link active">팀플 과제 소개</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-text reveal-element reveal-text">
+                    <h1 class="hero-title">팀플 과제 소개</h1>
+                    <p class="hero-subtitle">협업을 통해 함께 제작한 프로젝트들을 소개합니다.</p>
+                    <p class="hero-description">
+                        역할을 조화롭게 분담하여 기획, 디자인, 웹 표준 마크업 개발 및 
+                        Vercel 배포까지 성공적으로 완수한 협업 결과물들을 보여드립니다.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="https://github.com/hamzgi/security-guide-final" target="_blank" rel="noopener noreferrer" class="btn btn-primary">프로젝트 레포 보기</a>
+                        <a href="https://my-portfolio-v2-wvtv.vercel.app/" class="btn btn-secondary">배포 사이트 바로가기
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal-element reveal-image">
+                    <div class="hero-avatar">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collab" class="about" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+            <div class="container">
+                <h2 class="section-title reveal-element reveal-text">팀 프로젝트 협업</h2>
+                <div class="about-content">
+                    <div class="about-text reveal-element reveal-text">
+                        <p>
+                            이 프로젝트는 <strong>HTML/CSS/JS 기반의 다양한 보안 이슈 소개 페이지</strong>를 주제로 진행되었습니다. 
+                            단순한 코딩 기술의 합을 넘어, 팀원 간 조화로운 의사소통과 각자의 강점을 결합하여 완성도 높은 반응형 사이트를 완성했습니다.
+                        </p>
+                        <p>
+                            기획 단계에서 레이아웃 아키텍처를 잡고, GitHub 브랜치 전략을 적극적으로 활용하여 코드 충돌을 방지하며 
+                            사용자가 쉽게 여러가지 보안 이슈를 이해할 수 있도록 고민하며 사이트를 완성했습니다.
+                        </p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card reveal-element reveal-card-right">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">협업 완성도</div>
+                        </div>
+                        <div class="stat-card reveal-element reveal-card-right">
+                            <div class="stat-number">GitHub</div>
+                            <div class="stat-label">버전 제어</div>
+                        </div>
+                        <div class="stat-card reveal-element reveal-card-right">
+                            <div class="stat-number">Vercel</div>
+                            <div class="stat-label">배포 최적화</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="projects">
+            <div class="container">
+                <h2 class="section-title reveal-element reveal-text">프로젝트 상세 내용</h2>
+                <div class="projects-grid">
+                    <div class="project-card reveal-element reveal-card-left">
+                        <div class="project-image">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>팀 프로젝트: HTML 포트폴리오</h3>
+                            <p>
+                                반응형 디자인과 웹 접근성, 다양한 JS 기능을 최대한 활용하여 보안 이슈들을 소개하는 페이지를 만들었습니다.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                                <span class="tag">반응형</span>
+                            </div>
+                            <a href="https://my-portfolio-v2-wvtv.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">배포 사이트 방문</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element reveal-card-left">
+                        <div class="project-image">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>팀원 소개 & 역할 분담</h3>
+                            <p>
+                                박형진(팀장): 인터랙티브 보안 실습 페이지 제작<br>
+                                박시우: 보안 수칙 페이지 JS 인터랙션 제작<br>
+                                박지민: 보안 이슈 및 트렌드 페이지 제작<br>
+                                최보원: 위험진단 페이지 제작 및 공용 JS 제작
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">협업</span>
+                                <span class="tag">기획</span>
+                                <span class="tag">레이아웃</span>
+                            </div>
+                            <a href="team.html" class="project-link">팀원 상세 프로필 보기</a>
+                        </div>
+                    </div>
+
+                    <div class="project-card reveal-element reveal-card-right">
+                        <div class="project-image">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="project-content">
+                            <h3>배포 및 형상 관리</h3>
+                            <p>
+                                GitHub 리포지토리 협업 환경에서 마일스톤을 배포 주소(Vercel)와 실시간 연동해 
+                                각자의 파트를 동시 개발하고 배포 안정성을 유지했습니다.
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">Vercel</span>
+                                <span class="tag">Git</span>
+                                <span class="tag">배포</span>
+                            </div>
+                            <a href="https://github.com/hamzgi/security-guide-final" target="_blank" rel="noopener noreferrer" class="project-link">프로젝트 레포 바로가기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="links" class="contact">
+            <div class="container">
+                <h2 class="section-title reveal-element reveal-text">연결된 링크</h2>
+                <div class="contact-methods">
+                    <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" class="contact-card reveal-element reveal-card-left">
+                        <i class="fab fa-github"></i>
+                        <h3>GitHub 프로필</h3>
+                        <p>github.com/hamzgi</p>
+                    </a>
+                    <a href="https://hamzgi.tistory.com/" target="_blank" rel="noopener noreferrer" class="contact-card reveal-element reveal-card-right">
+                        <i class="fas fa-globe"></i>
+                        <h3>티스토리 블로그</h3>
+                        <p>https://hamzgi.tistory.com/</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/hamzgi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 맨 위로 가기 버튼 -->
+    <button id="backToTop" class="back-to-top" aria-label="맨 위로">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
