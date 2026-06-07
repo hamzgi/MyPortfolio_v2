@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript loaded successfully!');
 
+    // revealObserver를 상위 범위에서 정의 (동적 요소 관찰을 위함)
+    let revealObserver = null;
+
     // ==================== 테마 토글 기능 ====================
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
@@ -212,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const forks = repo.forks_count;
 
                 const cardHtml = `
-                    <div class="github-repo-card">
+                    <div class="github-repo-card reveal-element reveal-card-left">
                         <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="github-repo-title">
                             <i class="fab fa-github"></i> ${repo.name}
                         </a>
@@ -228,6 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 githubReposContainer.insertAdjacentHTML('beforeend', cardHtml);
             });
+
+            // 동적으로 생성된 GitHub 저장소 카드 관찰 및 스태거 딜레이 부여
+            if (revealObserver) {
+                const newCards = githubReposContainer.querySelectorAll('.reveal-element');
+                newCards.forEach((card, index) => {
+                    card.style.transitionDelay = `${index * 150}ms`;
+                    revealObserver.observe(card);
+                });
+            }
         }
 
         fetchGitHubRepos();
@@ -413,12 +425,13 @@ document.addEventListener('DOMContentLoaded', () => {
             rootMargin: '0px 0px -40px 0px' // 화면 하단에 도달하기 약간 전에 감지
         };
 
-        const revealObserver = new IntersectionObserver((entries, observer) => {
+        revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const el = entry.target;
-                    el.classList.add('revealed');
-                    observer.unobserve(el); // 한 번 활성화된 요소는 관찰 중지 (성능 최적화)
+                    entry.target.classList.add('revealed');
+                } else {
+                    // 스크롤에서 벗어났을 때 (올라가거나 내려가서 화면 밖으로 나갔을 때) 상태 초기화
+                    entry.target.classList.remove('revealed');
                 }
             });
         }, revealObserverOptions);
