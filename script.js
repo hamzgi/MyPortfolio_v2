@@ -1,17 +1,17 @@
-// DOM이 로드된 후에 실행
+﻿// DOM??濡쒕뱶???꾩뿉 ?ㅽ뻾
 document.addEventListener('DOMContentLoaded', () => {
     console.log('JavaScript loaded successfully!');
 
-    // revealObserver를 상위 범위에서 정의 (동적 요소 관찰을 위함)
+    // revealObserver瑜??곸쐞 踰붿쐞?먯꽌 ?뺤쓽 (?숈쟻 ?붿냼 愿李곗쓣 ?꾪븿)
     let revealObserver = null;
 
-    // ==================== 테마 토글 기능 ====================
+    // ==================== ?뚮쭏 ?좉? 湲곕뒫 ====================
     const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
     console.log('Theme toggle button:', themeToggle);
 
-    // 페이지 로드 시 저장된 테마 불러오기
+    // ?섏씠吏 濡쒕뱶 ????λ맂 ?뚮쭏 遺덈윭?ㅺ린
     const currentTheme = localStorage.getItem('theme') || 'dark';
     console.log('Current theme from localStorage:', currentTheme);
 
@@ -21,22 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Light mode applied on page load');
     }
 
-    // 테마 토글 이벤트 리스너
+    // ?뚮쭏 ?좉? ?대깽??由ъ뒪??
     themeToggle.addEventListener('click', () => {
         console.log('Theme toggle clicked!');
         body.classList.toggle('light-mode');
         console.log('Body classes after toggle:', body.className);
 
-        // 테마 상태를 localStorage에 저장
+        // ?뚮쭏 ?곹깭瑜?localStorage?????
         const theme = body.classList.contains('light-mode') ? 'light' : 'dark';
         localStorage.setItem('theme', theme);
         console.log('Theme saved to localStorage:', theme);
 
-        // 아이콘 업데이트
+        // ?꾩씠肄??낅뜲?댄듃
         updateThemeIcon();
     });
 
-    // 테마 아이콘 업데이트 함수
+    // ?뚮쭏 ?꾩씠肄??낅뜲?댄듃 ?⑥닔
     function updateThemeIcon() {
         const icon = themeToggle.querySelector('i');
         console.log('Icon element:', icon);
@@ -52,19 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ==================== 모바일 메뉴 토글 ====================
+    // ==================== 紐⑤컮??硫붾돱 ?좉? ====================
     const hamburger = document.getElementById('hamburger');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (hamburger && navMenu) {
-        // 햄버거 메뉴 클릭 이벤트
+        // ?꾨쾭嫄?硫붾돱 ?대┃ ?대깽??
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // 네비게이션 링크 클릭 시 메뉴 자동 닫기
+        // ?ㅻ퉬寃뚯씠??留곹겕 ?대┃ ??硫붾돱 ?먮룞 ?リ린
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // 메뉴 외부 클릭 시 메뉴 닫기
+        // 硫붾돱 ?몃? ?대┃ ??硫붾돱 ?リ린
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.navbar') && navMenu.classList.contains('active')) {
                 hamburger.classList.remove('active');
@@ -81,14 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== 타이핑 효과 (Typewriter Effect) ====================
+    // ==================== ??댄븨 ?④낵 (Typewriter Effect) ====================
     const typingText = document.getElementById('typing-text');
     if (typingText) {
         const words = [
-            "웹 개발을 공부하고 있는 박형진입니다.",
-            "보안과 웹을 사랑하는 대학생입니다.",
-            "멋쟁이사자처럼에서 열정적으로 활동하고 있습니다.",
-            "사용자 중심의 서비스를 고민하는 주니어입니다."
+            "??媛쒕컻??怨듬??섍퀬 ?덈뒗 諛뺥삎吏꾩엯?덈떎.",
+            "蹂댁븞怨??뱀쓣 ?щ옉?섎뒗 ??숈깮?낅땲??",
+            "硫뗭웳?댁궗?먯쿂?쇱뿉???댁젙?곸쑝濡??쒕룞?섍퀬 ?덉뒿?덈떎.",
+            "?ъ슜??以묒떖???쒕퉬?ㅻ? 怨좊??섎뒗 二쇰땲?댁엯?덈떎."
         ];
         let wordIndex = 0;
         let charIndex = 0;
@@ -97,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
         function type() {
             const currentWord = words[wordIndex];
             if (isDeleting) {
-                // 한 글자씩 삭제
+                // ??湲?먯뵫 ??젣
                 typingText.textContent = currentWord.substring(0, charIndex - 1);
                 charIndex--;
             } else {
-                // 한 글자씩 타이핑
+                // ??湲?먯뵫 ??댄븨
                 typingText.textContent = currentWord.substring(0, charIndex + 1);
                 charIndex++;
             }
@@ -109,11 +109,11 @@ document.addEventListener('DOMContentLoaded', () => {
             let typeSpeed = isDeleting ? 40 : 80;
 
             if (!isDeleting && charIndex === currentWord.length) {
-                // 단어가 모두 작성되면 2초간 대기 후 지우기 시작
+                // ?⑥뼱媛 紐⑤몢 ?묒꽦?섎㈃ 2珥덇컙 ?湲???吏?곌린 ?쒖옉
                 typeSpeed = 2000;
                 isDeleting = true;
             } else if (isDeleting && charIndex === 0) {
-                // 단어가 모두 지워지면 다음 단어로 변경
+                // ?⑥뼱媛 紐⑤몢 吏?뚯?硫??ㅼ쓬 ?⑥뼱濡?蹂寃?
                 isDeleting = false;
                 wordIndex = (wordIndex + 1) % words.length;
                 typeSpeed = 500;
@@ -122,16 +122,16 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(type, typeSpeed);
         }
 
-        // 초기 시작
+        // 珥덇린 ?쒖옉
         setTimeout(type, 500);
     }
 
-    // ==================== 기술 스택 스크롤 게이지 애니메이션 (Intersection Observer) ====================
+    // ==================== 湲곗닠 ?ㅽ깮 ?ㅽ겕濡?寃뚯씠吏 ?좊땲硫붿씠??(Intersection Observer) ====================
     const progressBars = document.querySelectorAll('.skill-progress');
     if (progressBars.length > 0) {
         const observerOptions = {
             root: null, // viewport
-            threshold: 0.1 // 10% 노출 시 실행
+            threshold: 0.1 // 10% ?몄텧 ???ㅽ뻾
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
@@ -139,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     const progressBar = entry.target;
                     const progress = progressBar.getAttribute('data-progress');
-                    // CSS 커스텀 변수(--progress)에 목표치 할당 및 visible 클래스 추가
+                    // CSS 而ㅼ뒪? 蹂??--progress)??紐⑺몴移??좊떦 諛?visible ?대옒??異붽?
                     progressBar.style.setProperty('--progress', progress);
                     progressBar.classList.add('visible');
-                    // 한 번 실행된 후에는 관찰 중지
+                    // ??踰??ㅽ뻾???꾩뿉??愿李?以묒?
                     observer.unobserve(progressBar);
                 }
             });
@@ -151,14 +151,14 @@ document.addEventListener('DOMContentLoaded', () => {
         progressBars.forEach(bar => observer.observe(bar));
     }
 
-    // ==================== 프로젝트 카테고리 필터 기능 ====================
+    // ==================== ?꾨줈?앺듃 移댄뀒怨좊━ ?꾪꽣 湲곕뒫 ====================
     const filterButtons = document.querySelectorAll('.btn-filter');
     const projectCards = document.querySelectorAll('.project-card');
 
     if (filterButtons.length > 0 && projectCards.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // 액티브 클래스 변경
+                // ?≫떚釉??대옒??蹂寃?
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== GitHub API 실시간 연동 (projects.html 전용) ====================
+    // ==================== GitHub API ?ㅼ떆媛??곕룞 (projects.html ?꾩슜) ====================
     const githubReposContainer = document.getElementById('github-repos');
     if (githubReposContainer) {
         const username = 'hamzgi';
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
                 if (!response.ok) {
-                    throw new Error('GitHub API 호출 실패');
+                    throw new Error('GitHub API ?몄텧 ?ㅽ뙣');
                 }
                 const repos = await response.json();
                 renderGitHubRepos(repos);
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 githubReposContainer.innerHTML = `
                     <div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #ff4a5a;">
                         <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                        <p>GitHub 저장소를 불러오지 못했습니다.</p>
+                        <p>GitHub ??μ냼瑜?遺덈윭?ㅼ? 紐삵뻽?듬땲??</p>
                         <p style="font-size: 0.85rem; margin-top: 0.5rem; color: var(--text-secondary);">${error.message}</p>
                     </div>
                 `;
@@ -203,13 +203,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function renderGitHubRepos(repos) {
             if (repos.length === 0) {
-                githubReposContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">공개된 저장소가 없습니다.</p>`;
+                githubReposContainer.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">怨듦컻????μ냼媛 ?놁뒿?덈떎.</p>`;
                 return;
             }
 
             githubReposContainer.innerHTML = '';
             repos.forEach(repo => {
-                const description = repo.description || '설명이 작성되지 않은 레포지토리입니다.';
+                const description = repo.description || '?ㅻ챸???묒꽦?섏? ?딆? ?덊룷吏?좊━?낅땲??';
                 const language = repo.language || 'HTML/CSS';
                 const stars = repo.stargazers_count;
                 const forks = repo.forks_count;
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 githubReposContainer.insertAdjacentHTML('beforeend', cardHtml);
             });
 
-            // 동적으로 생성된 GitHub 저장소 카드 관찰 및 스태거 딜레이 부여
+            // ?숈쟻?쇰줈 ?앹꽦??GitHub ??μ냼 移대뱶 愿李?諛??ㅽ깭嫄??쒕젅??遺??
             if (revealObserver) {
                 const newCards = githubReposContainer.querySelectorAll('.reveal-element');
                 newCards.forEach((card, index) => {
@@ -245,26 +245,26 @@ document.addEventListener('DOMContentLoaded', () => {
         fetchGitHubRepos();
     }
 
-    // ==================== LocalStorage 방명록 (Guestbook) CRUD 구현 ====================
+    // ==================== LocalStorage 諛⑸챸濡?(Guestbook) CRUD 援ы쁽 ====================
     const guestbookForm = document.getElementById('guestbookForm');
     const guestbookList = document.getElementById('guestbookList');
 
     if (guestbookForm && guestbookList) {
-        // 메시지 로드 및 렌더링
+        // 硫붿떆吏 濡쒕뱶 諛??뚮뜑留?
         function loadGuestbook() {
             const messages = JSON.parse(localStorage.getItem('guestbook_messages')) || [];
             
             if (messages.length === 0) {
                 guestbookList.innerHTML = `
                     <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">
-                        아직 등록된 방명록이 없습니다. 첫 마디를 남겨보세요!
+                        ?꾩쭅 ?깅줉??諛⑸챸濡앹씠 ?놁뒿?덈떎. 泥?留덈뵒瑜??④꺼蹂댁꽭??
                     </div>
                 `;
                 return;
             }
 
             guestbookList.innerHTML = '';
-            // 최신글이 위로 오도록 역순 출력
+            // 理쒖떊湲???꾨줈 ?ㅻ룄濡???닚 異쒕젰
             messages.slice().reverse().forEach((msg) => {
                 const card = document.createElement('div');
                 card.className = 'guest-card';
@@ -274,8 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="guest-name">${escapeHTML(msg.name)}</span>
                             <span class="guest-date">${msg.date}</span>
                         </div>
-                        <button class="btn-delete-guest" data-id="${msg.id}" title="삭제">
-                            <i class="fas fa-trash-alt"></i> 삭제
+                        <button class="btn-delete-guest" data-id="${msg.id}" title="??젣">
+                            <i class="fas fa-trash-alt"></i> ??젣
                         </button>
                     </div>
                     <div class="guest-content">${escapeHTML(msg.message)}</div>
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 guestbookList.appendChild(card);
             });
 
-            // 삭제 버튼 이벤트 등록
+            // ??젣 踰꾪듉 ?대깽???깅줉
             const deleteButtons = guestbookList.querySelectorAll('.btn-delete-guest');
             deleteButtons.forEach(button => {
                 button.addEventListener('click', (e) => {
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // HTML 이스케이프 함수 (XSS 방지)
+        // HTML ?댁뒪耳?댄봽 ?⑥닔 (XSS 諛⑹?)
         function escapeHTML(str) {
             return str.replace(/[&<>'"]/g, 
                 tag => ({
@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             );
         }
 
-        // 방명록 등록
+        // 諛⑸챸濡??깅줉
         guestbookForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const nameInput = document.getElementById('guestName');
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messages.push(newMsg);
             localStorage.setItem('guestbook_messages', JSON.stringify(messages));
 
-            // 입력 필드 초기화
+            // ?낅젰 ?꾨뱶 珥덇린??
             nameInput.value = '';
             passwordInput.value = '';
             messageInput.value = '';
@@ -333,34 +333,34 @@ document.addEventListener('DOMContentLoaded', () => {
             loadGuestbook();
         });
 
-        // 방명록 삭제
+        // 諛⑸챸濡???젣
         function deleteGuestbookItem(id) {
-            const inputPassword = prompt('방명록 작성 시 입력한 비밀번호를 입력해주세요:');
+            const inputPassword = prompt('諛⑸챸濡??묒꽦 ???낅젰??鍮꾨?踰덊샇瑜??낅젰?댁＜?몄슂:');
             if (inputPassword === null) return;
 
             const messages = JSON.parse(localStorage.getItem('guestbook_messages')) || [];
             const targetIndex = messages.findIndex(msg => msg.id === id);
 
             if (targetIndex === -1) {
-                alert('해당 방명록을 찾을 수 없습니다.');
+                alert('?대떦 諛⑸챸濡앹쓣 李얠쓣 ???놁뒿?덈떎.');
                 return;
             }
 
             if (messages[targetIndex].password === inputPassword) {
                 messages.splice(targetIndex, 1);
                 localStorage.setItem('guestbook_messages', JSON.stringify(messages));
-                alert('삭제되었습니다.');
+                alert('??젣?섏뿀?듬땲??');
                 loadGuestbook();
             } else {
-                alert('비밀번호가 올바르지 않습니다.');
+                alert('鍮꾨?踰덊샇媛 ?щ컮瑜댁? ?딆뒿?덈떎.');
             }
         }
 
-        // 초기 로드 실행
+        // 珥덇린 濡쒕뱶 ?ㅽ뻾
         loadGuestbook();
     }
 
-    // ==================== Back to Top (맨 위로 가기) 버튼 ====================
+    // ==================== Back to Top (留??꾨줈 媛湲? 踰꾪듉 ====================
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {
@@ -379,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== Scrollspy (스크롤에 따른 활성 메뉴 표시) ====================
+    // ==================== Scrollspy (?ㅽ겕濡ㅼ뿉 ?곕Ⅸ ?쒖꽦 硫붾돱 ?쒖떆) ====================
     const isMainPage = document.getElementById('home') && document.querySelector('.hero');
     if (isMainPage) {
         const sections = document.querySelectorAll('section[id]');
@@ -403,11 +403,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ==================== 스크롤 Reveal 애니메이션 (Intersection Observer) ====================
+    // ==================== ?ㅽ겕濡?Reveal ?좊땲硫붿씠??(Intersection Observer) ====================
     const revealElements = document.querySelectorAll('.reveal-element');
     
     if (revealElements.length > 0) {
-        // 그룹 요소(스탯 카드, 스킬 카드, 프로젝트 카드 등)에 대해 순차적 딜레이(Stagger) 자동 설정
+        // 洹몃９ ?붿냼(?ㅽ꺈 移대뱶, ?ㅽ궗 移대뱶, ?꾨줈?앺듃 移대뱶 ????????쒖감???쒕젅??Stagger) ?먮룞 ?ㅼ젙
         const revealGroups = document.querySelectorAll('.about-stats, .skills-grid, .projects-grid, .contact-methods');
         revealGroups.forEach(group => {
             const children = group.querySelectorAll('.reveal-element');
@@ -418,11 +418,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Intersection Observer 옵션 설정
+        // Intersection Observer ?듭뀡 ?ㅼ젙
         const revealObserverOptions = {
             root: null, // viewport
-            threshold: 0.1, // 10% 노출 시 실행
-            rootMargin: '0px 0px -40px 0px' // 화면 하단에 도달하기 약간 전에 감지
+            threshold: 0.1, // 10% ?몄텧 ???ㅽ뻾
+            rootMargin: '0px 0px -40px 0px' // ?붾㈃ ?섎떒???꾨떖?섍린 ?쎄컙 ?꾩뿉 媛먯?
         };
 
         revealObserver = new IntersectionObserver((entries, observer) => {
@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('revealed');
                 } else {
-                    // 스크롤에서 벗어났을 때 (올라가거나 내려가서 화면 밖으로 나갔을 때) 상태 초기화
+                    // ?ㅽ겕濡ㅼ뿉??踰쀬뼱?ъ쓣 ??(?щ씪媛嫄곕굹 ?대젮媛???붾㈃ 諛뽰쑝濡??섍컮???? ?곹깭 珥덇린??
                     entry.target.classList.remove('revealed');
                 }
             });
@@ -439,7 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealElements.forEach(el => revealObserver.observe(el));
     }
 
-    // ==================== 자격증 / 스킬 뱃지 모달 제어 ====================
+    // ==================== ?먭꺽利?/ ?ㅽ궗 諭껋? 紐⑤떖 ?쒖뼱 ====================
     const placeholders = document.querySelectorAll('.badge-image-placeholder');
     const modal = document.getElementById('credentialModal');
     
@@ -454,18 +454,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         placeholders.forEach(placeholder => {
             placeholder.addEventListener('click', () => {
-                // 클릭 시 해당 요소의 data 속성 읽기
+                // ?대┃ ???대떦 ?붿냼??data ?띿꽦 ?쎄린
                 const title = placeholder.getAttribute('data-title') || '';
                 const issuer = placeholder.getAttribute('data-issuer') || '';
                 const date = placeholder.getAttribute('data-date') || '';
                 const desc = placeholder.getAttribute('data-description') || '';
                 
-                // 이미지 태그에서 src와 alt 읽기
+                // ?대?吏 ?쒓렇?먯꽌 src? alt ?쎄린
                 const img = placeholder.querySelector('img');
                 const imgSrc = img ? img.getAttribute('src') : '';
                 const imgAlt = img ? img.getAttribute('alt') : '';
 
-                // 모달 내용 채우기
+                // 紐⑤떖 ?댁슜 梨꾩슦湲?
                 if (modalImg) {
                     modalImg.src = imgSrc;
                     modalImg.alt = imgAlt;
@@ -475,29 +475,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (modalDate) modalDate.textContent = date;
                 if (modalDesc) modalDesc.textContent = desc;
 
-                // 모달 활성화 및 body 스크롤 방지
+                // 紐⑤떖 ?쒖꽦??諛?body ?ㅽ겕濡?諛⑹?
                 modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
 
-        // 모달 닫기 기능 함수
+        // 紐⑤떖 ?リ린 湲곕뒫 ?⑥닔
         function closeModal() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        // 닫기 버튼 클릭
+        // ?リ린 踰꾪듉 ?대┃
         if (modalClose) {
             modalClose.addEventListener('click', closeModal);
         }
 
-        // 오버레이 영역 클릭
+        // ?ㅻ쾭?덉씠 ?곸뿭 ?대┃
         if (modalOverlay) {
             modalOverlay.addEventListener('click', closeModal);
         }
 
-        // ESC 키 입력 시 닫기
+        // ESC ???낅젰 ???リ린
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 closeModal();
@@ -507,3 +507,70 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+/* ============================================
+   SLIDESHOW LOGIC (teampj.html)
+   ============================================ */
+(function () {
+    const track = document.getElementById('slideshowTrack');
+    if (!track) return; // teampj.html 외 페이지에서는 실행 안 함
+
+    const slides = Array.from(track.querySelectorAll('.slide'));
+    const dots   = Array.from(document.querySelectorAll('.slide-dot'));
+    const prevBtn = document.getElementById('slidePrev');
+    const nextBtn = document.getElementById('slideNext');
+
+    let current = 0;
+    let autoTimer = null;
+    const AUTO_DELAY = 4000;
+
+    function goTo(index) {
+        slides[current].classList.remove('active');
+        dots[current].classList.remove('active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('active');
+        dots[current].classList.add('active');
+    }
+
+    function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(() => goTo(current + 1), AUTO_DELAY);
+    }
+
+    function stopAuto() {
+        if (autoTimer) {
+            clearInterval(autoTimer);
+            autoTimer = null;
+        }
+    }
+
+    prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => {
+            goTo(parseInt(dot.dataset.index, 10));
+            startAuto();
+        });
+    });
+
+    // 터치/스와이프 지원
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) {
+            goTo(diff > 0 ? current + 1 : current - 1);
+            startAuto();
+        }
+    }, { passive: true });
+
+    // 마우스 오버 시 자동 재생 일시정지
+    const wrapper = track.closest('.slideshow-wrapper');
+    if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAuto);
+        wrapper.addEventListener('mouseleave', startAuto);
+    }
+
+    startAuto();
+})();

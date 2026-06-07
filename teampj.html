@@ -61,6 +61,65 @@
             </div>
         </section>
 
+        <!-- 슬라이드쇼 섹션 -->
+        <section id="preview" class="slideshow-section reveal-element">
+            <div class="container">
+                <h2 class="section-title reveal-element reveal-text">프로젝트 페이지 미리보기</h2>
+                <p class="section-subtitle reveal-element reveal-text">팀플 프로젝트 주요 페이지 스크린샷</p>
+                <div class="slideshow-wrapper">
+                    <div class="slideshow-track" id="slideshowTrack">
+                        <div class="slide active">
+                            <img src="img/teampj/main.png" alt="메인 홈페이지">
+                            <div class="slide-caption">메인 홈페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/member.png" alt="팀원 소개 페이지">
+                            <div class="slide-caption">팀원 소개 페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/news.png" alt="보안 뉴스 페이지">
+                            <div class="slide-caption">보안 뉴스 페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/owasp10.png" alt="OWASP Top 10 페이지">
+                            <div class="slide-caption">OWASP Top 10 페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/practice.png" alt="보안 실습 페이지">
+                            <div class="slide-caption">보안 실습 페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/protocol.png" alt="보안 수칙 페이지">
+                            <div class="slide-caption">보안 수칙 페이지</div>
+                        </div>
+                        <div class="slide">
+                            <img src="img/teampj/test.png" alt="위험 진단 페이지">
+                            <div class="slide-caption">위험 진단 페이지</div>
+                        </div>
+                    </div>
+
+                    <!-- 이전/다음 버튼 -->
+                    <button class="slide-btn slide-prev" id="slidePrev" aria-label="이전 슬라이드">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slide-btn slide-next" id="slideNext" aria-label="다음 슬라이드">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- 닷 인디케이터 -->
+                    <div class="slide-dots" id="slideDots">
+                        <button class="slide-dot active" data-index="0" aria-label="슬라이드 1"></button>
+                        <button class="slide-dot" data-index="1" aria-label="슬라이드 2"></button>
+                        <button class="slide-dot" data-index="2" aria-label="슬라이드 3"></button>
+                        <button class="slide-dot" data-index="3" aria-label="슬라이드 4"></button>
+                        <button class="slide-dot" data-index="4" aria-label="슬라이드 5"></button>
+                        <button class="slide-dot" data-index="5" aria-label="슬라이드 6"></button>
+                        <button class="slide-dot" data-index="6" aria-label="슬라이드 7"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="collab" class="about" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
             <div class="container">
                 <h2 class="section-title reveal-element reveal-text">팀 프로젝트 협업</h2>
