@@ -438,5 +438,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => revealObserver.observe(el));
     }
+
+    // ==================== 자격증 / 스킬 뱃지 모달 제어 ====================
+    const placeholders = document.querySelectorAll('.badge-image-placeholder');
+    const modal = document.getElementById('credentialModal');
+    
+    if (placeholders.length > 0 && modal) {
+        const modalImg = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalIssuer = document.getElementById('modalIssuer');
+        const modalDate = document.getElementById('modalDate');
+        const modalDesc = document.getElementById('modalDescription');
+        const modalClose = document.getElementById('modalClose');
+        const modalOverlay = modal.querySelector('.modal-overlay');
+
+        placeholders.forEach(placeholder => {
+            placeholder.addEventListener('click', () => {
+                // 클릭 시 해당 요소의 data 속성 읽기
+                const title = placeholder.getAttribute('data-title') || '';
+                const issuer = placeholder.getAttribute('data-issuer') || '';
+                const date = placeholder.getAttribute('data-date') || '';
+                const desc = placeholder.getAttribute('data-description') || '';
+                
+                // 이미지 태그에서 src와 alt 읽기
+                const img = placeholder.querySelector('img');
+                const imgSrc = img ? img.getAttribute('src') : '';
+                const imgAlt = img ? img.getAttribute('alt') : '';
+
+                // 모달 내용 채우기
+                if (modalImg) {
+                    modalImg.src = imgSrc;
+                    modalImg.alt = imgAlt;
+                }
+                if (modalTitle) modalTitle.textContent = title;
+                if (modalIssuer) modalIssuer.textContent = issuer;
+                if (modalDate) modalDate.textContent = date;
+                if (modalDesc) modalDesc.textContent = desc;
+
+                // 모달 활성화 및 body 스크롤 방지
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        // 모달 닫기 기능 함수
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // 닫기 버튼 클릭
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        // 오버레이 영역 클릭
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', closeModal);
+        }
+
+        // ESC 키 입력 시 닫기
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
 });
+
 

@@ -33,6 +33,9 @@
     --radius-sm: 0.5rem;
     --radius-md: 1rem;
     --radius-lg: 1.5rem;
+
+    /* New: Placeholders & Credentials style variable */
+    --placeholder-bg: rgba(255, 255, 255, 0.03);
 }
 
 body.light-mode {
@@ -42,6 +45,7 @@ body.light-mode {
     --text-primary: #0a0e27;
     --text-secondary: #5a6376;
     --border-color: #d4dce8;
+    --placeholder-bg: rgba(0, 0, 0, 0.03);
 }
 
 * {
@@ -568,6 +572,49 @@ main {
 }
 .skill-progress.visible {
     width: var(--progress);
+}
+
+/* ==================== Credentials Section (자격증 & 뱃지) ==================== */
+.credentials {
+    padding: var(--spacing-xxl) var(--spacing-lg);
+    background-color: var(--bg-primary);
+}
+
+.certifications-container, .badges-container {
+    width: 100%;
+}
+
+.badge-image-placeholder {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--placeholder-bg);
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--border-color);
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.skill-card:hover .badge-image-placeholder {
+    border-color: var(--accent);
+    background-color: rgba(0, 212, 255, 0.02);
+}
+
+.badge-image-placeholder img {
+    border-radius: var(--radius-sm);
+    max-width: 100%;
+    max-height: 140px;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.image-tip {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
 }
 
 /* ==================== Projects Section ==================== */
@@ -1293,3 +1340,173 @@ main {
     gap: 4px;
 }
 
+/* ==================== Modal (자격증 & 뱃지 상세 보기) ==================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 14, 39, 0.7);
+    backdrop-filter: blur(8px);
+    transition: all 0.4s ease;
+}
+
+.modal-wrapper {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    z-index: 2001;
+    overflow: hidden;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal.active .modal-wrapper {
+    transform: scale(1) translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    background-color: #ff4a5a;
+    border-color: #ff4a5a;
+    color: #ffffff;
+    transform: rotate(90deg);
+}
+
+.modal-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    min-height: 350px;
+}
+
+.modal-image-area {
+    background-color: var(--bg-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    border-right: 1px solid var(--border-color);
+}
+
+.modal-image-area img {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.modal-info-area {
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.modal-meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.modal-meta-item i {
+    color: var(--accent);
+}
+
+.modal-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--border-color), transparent);
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Responsive modal */
+@media (max-width: 768px) {
+    .modal-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-image-area {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    }
+    
+    .modal-image-area img {
+        max-height: 200px;
+    }
+    
+    .modal-info-area {
+        padding: var(--spacing-lg);
+    }
+    
+    .modal-title {
+        font-size: 1.4rem;
+    }
+}

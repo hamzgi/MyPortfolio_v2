@@ -123,6 +123,67 @@
                 </div>
             </div>
         </section>
+
+        <section class="credentials">
+            <div class="container">
+                
+                <div class="certifications-container">
+                    <h2 class="section-title reveal-element reveal-text">자격증</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card reveal-element reveal-card-left">
+                            <div class="skill-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <h3>SQLD</h3>
+                            <p>SQL 개발자 자격증</p>
+                            <div class="badge-image-placeholder" style="cursor: pointer;" title="상세 정보 보기"
+                                 data-title="SQLD (SQL 개발자)" 
+                                 data-issuer="한국데이터산업진흥원" 
+                                 data-date="2024년 취득" 
+                                 data-description="데이터베이스 구조와 SQL 활용 능력을 검증하는 국가 공인 자격증입니다. 관계형 데이터베이스(RDB) 설계의 기초가 되는 데이터 모델링 지식을 기반으로, 정교한 SQL문 작성, 서브쿼리 활용, 조인 성능 최적화 등 대용량 데이터를 효율적으로 조회하고 관리할 수 있는 개발 역량을 증명합니다.">
+                                <img src="/img/sqld.png" alt="SQLD 자격증 이미지" style="display:block;">
+                            </div>
+                        </div>
+                        
+                        <div class="skill-card reveal-element reveal-card-left">
+                            <div class="skill-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>네트워크 관리사 2급</h3>
+                            <p>네트워크 및 서버 관리</p>
+                            <div class="badge-image-placeholder" style="cursor: pointer;" title="상세 정보 보기"
+                                 data-title="네트워크 관리사 2급" 
+                                 data-issuer="한국정보통신자격협회 (ICQA)" 
+                                 data-date="2023년 취득" 
+                                 data-description="네트워크 및 서버 관리 실무 능력을 인증하는 국가 공인 자격증입니다. TCP/IP 프로토콜 분석, 서브넷 설계, 물리적 네트워크 장애 조치와 더불어 Cisco 라우터 설정, Windows 및 Linux 서버 시스템(Active Directory, DNS, 웹/FTP 서버 등) 구축 및 보안 관리에 대한 실무 역량을 입증합니다.">
+                                <img src="/img/network2.jpg" alt="네트워크 관리사 2급 이미지" style="display:block;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="badges-container" style="margin-top: 60px;">
+                    <h2 class="section-title reveal-element reveal-text">보유 뱃지</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card reveal-element reveal-card-left">
+                            <div class="skill-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h3>Cloud Run Functions</h3>
+                            <p>서버리스 애플리케이션 빌드</p>
+                            <div class="badge-image-placeholder" style="cursor: pointer;" title="상세 정보 보기"
+                                 data-title="Cloud Run Functions로 서버리스 애플리케이션 빌드" 
+                                 data-issuer="Google Cloud Badge" 
+                                 data-date="2026년 이수" 
+                                 data-description="Google Cloud Platform (GCP)에서 제공하는 대표적인 서버리스 컴퓨팅 서비스인 Cloud Run Functions를 다루는 역량을 증명하는 배지입니다. 서버 인프라 직접 관리 없이, 대규모 트래픽 확장에 자동 대응하는 클라우드 네이티브 마이크로서비스 및 이벤트 기반 서버리스 웹 애플리케이션을 빌드하고 배포하는 전문 지식을 보유하고 있습니다.">
+                                <img src="/img/cloudrun.png" alt="Cloud Run Functions 뱃지 이미지" style="display:block;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -139,10 +200,37 @@
         </div>
     </footer>
 
-    <!-- 맨 위로 가기 버튼 -->
     <button id="backToTop" class="back-to-top" aria-label="맨 위로">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- 자격증 / 스킬 뱃지 상세 보기 모달 -->
+    <div id="credentialModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-wrapper">
+            <button class="modal-close" id="modalClose" aria-label="닫기">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-container">
+                <div class="modal-image-area">
+                    <img id="modalImage" src="" alt="상세 이미지">
+                </div>
+                <div class="modal-info-area">
+                    <h2 id="modalTitle" class="modal-title">자격증 정보</h2>
+                    <div class="modal-meta">
+                        <span class="modal-meta-item">
+                            <i class="fas fa-certificate"></i> <span id="modalIssuer">발급처</span>
+                        </span>
+                        <span class="modal-meta-item">
+                            <i class="far fa-calendar-alt"></i> <span id="modalDate">취득일</span>
+                        </span>
+                    </div>
+                    <div class="modal-divider"></div>
+                    <p id="modalDescription" class="modal-desc">상세 내용이 들어갈 자리입니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
