@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     /* Colors - Dark Mode */
     --bg-primary: #0a0e27;
     --bg-secondary: #1a1f3a;
@@ -725,7 +725,7 @@ main {
 }
 
 .project-link::after {
-    content: '??;
+    content: ' \2192';
     transition: var(--transition);
 }
 
@@ -1516,7 +1516,7 @@ main {
    ============================================ */
 
 .slideshow-section {
-    padding: var(--spacing-3xl) 0;
+    padding: 6rem 0;
     background: var(--bg-primary);
     border-top: 1px solid var(--border-color);
 }
@@ -1652,3 +1652,4 @@ main {
     .slide-prev { left: 8px; }
     .slide-next { right: 8px; }
 }
+
